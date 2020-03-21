@@ -45,8 +45,14 @@ class DbConnection {
     //return  Assoc Array mysqli_result Object with the num of row and field
     public function database_query($database_query) {
         $this->encode();
-        $query_result = mysqli_query($this->database_connection,$database_query);
-        return $query_result;
+        if($query_result = mysqli_query($this->database_connection,$database_query)==true){
+            
+            return $query_result;
+        }
+        else {
+            
+            return false;
+        }
     }
 
     //return Assoc inside index Array of Query result
@@ -62,5 +68,21 @@ class DbConnection {
         mysqli_query($this->database_connection,"SET NAMES utf8");
     }
     
+
+    //_________________________________________________________________________________________update
+        
+    public function update_data($tabel,$data,$key,$id){
+        $sql = "UPDATE " . $tabel . " SET  ".$data . " WHERE  ".$key."=".$id;
+       
+        if( $this->query_result($sql)){
+          
+            return true;
+        
+        }
+        else{
+            
+            return false;
+        }
+    }
     
 } 
