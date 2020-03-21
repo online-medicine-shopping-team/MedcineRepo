@@ -21,19 +21,7 @@ class DbConnection {
             $this->database_select($this->db_name);
       
     }
-    //__________________________________________________________________________________________connect
-    //return connection info
-    private function database_connect($database_host, $database_username, $database_password) {
-        @ ($connection = mysqli_connect($database_host, $database_username, $database_password)) or  die( '<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-moz-center;margin-top:170px ">DB Connect Erorr(xampp)</H1>' );
-
-            return $connection;
-   
-    }
-
-    private function database_select($database_name) {
-        return mysqli_select_db($this->database_connection,$database_name)
-            or die("No database is selecteted");
-    }
+    //__
     
     public   function database_close() {
         if(!mysqli_close($this->database_connection)) die ("Connection close failed.");
