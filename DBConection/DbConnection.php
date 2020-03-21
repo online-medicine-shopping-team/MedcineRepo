@@ -9,20 +9,7 @@
  */
 class DbConnection {
     
-    private $host="localhost";
-    private $username="root";
-    private $password="";
-    public $db_name="online_medicine_shopping"; //database name 
-    private  $database_connection;  
-
-    public function __construct() {
-
-            $this->database_connection =  $this->database_connect($this->host, $this->username,$this->password);
-            $this->database_select($this->db_name);
-      
-    }
-    //__
-    
+ 
     public   function database_close() {
         if(!mysqli_close($this->database_connection)) die ("Connection close failed.");
            
