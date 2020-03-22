@@ -69,21 +69,9 @@ class DbConnection {
     }
     
 
-    //_________________________________________________________________________________________update
-        
-    public function update_data($tabel,$data,$key,$id){
-        $sql = "UPDATE " . $tabel . " SET  ".$data . " WHERE  ".$key."=".$id;
-       
-        if( $this->query_result($sql)){
-          
-            return true;
-        
-        }
-        else{
-            
-            return false;
-            
-        }
-    }
-    
+    //_________________________________________________________________________________________Update
+    function Update($database_query){
+       return $this->database_query( $database_query )  or die("Update error") ;
+    }   
+}
 } 
